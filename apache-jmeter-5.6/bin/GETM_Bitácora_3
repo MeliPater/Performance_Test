@@ -1,0 +1,27 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1714081535155,1951,QRY - Obtener ID_Bodega y NUD,200,OK,setUp Thread Group 1-1,text,true,,4286,0,1,1,null,1949,0,1440
+1714081537105,1,QRY - Obtener ID_Bodega y NUD-0,200,OK,setUp Thread Group 1-1,text,true,,4242,0,1,1,null,0,0,0
+1714081537212,8747,ObtieneProductos,200,OK,Grupo de Hilos 1-1,text,true,,247889,425,1,1,https://us-central1-getm-stg.cloudfunctions.net/ObtieneProductos,8493,0,210
+1714081545960,0,ObtieneProductos-0,200,OK,Grupo de Hilos 1-1,text,true,,4291,0,1,1,null,0,0,0
+1714081550845,7242,ObtienePromocionesEcommerce,200,OK,Grupo de Hilos 1-1,text,true,,164941,416,2,2,https://us-central1-getm-stg.cloudfunctions.net/ObtienePromocionesEcommerce,7228,0,0
+1714081558074,13,ObtienePromocionesEcommerce-0,200,OK,Grupo de Hilos 1-1,text,true,,164508,0,2,2,null,0,0,0
+1714081557236,5156,ObtieneProductos,200,OK,Grupo de Hilos 1-2,text,true,,247889,425,2,2,https://us-central1-getm-stg.cloudfunctions.net/ObtieneProductos,5035,0,113
+1714081562391,1,ObtieneProductos-0,200,OK,Grupo de Hilos 1-2,text,true,,4291,0,2,2,null,0,0,0
+1714081564622,734,ObtienePromocionesEcommerce,200,OK,Grupo de Hilos 1-2,text,true,,166650,416,2,2,https://us-central1-getm-stg.cloudfunctions.net/ObtienePromocionesEcommerce,729,0,0
+1714081565351,5,ObtienePromocionesEcommerce-0,200,OK,Grupo de Hilos 1-2,text,true,,164507,0,2,2,null,0,0,0
+1714081560222,6010,ObtieneProductosPromocion,200,OK,Grupo de Hilos 1-1,text,true,,164998,459,2,2,https://us-central1-getm-stg.cloudfunctions.net/ObtieneProductosPromocion,5995,0,0
+1714081566218,14,ObtieneProductosPromocion-0,200,OK,Grupo de Hilos 1-1,text,true,,164565,0,2,2,null,0,0,0
+1714081567445,769,ObtieneProductosPromocion,200,OK,Grupo de Hilos 1-2,text,true,,166483,446,2,2,https://us-central1-getm-stg.cloudfunctions.net/ObtieneProductosPromocion,753,0,0
+1714081568199,15,ObtieneProductosPromocion-0,200,OK,Grupo de Hilos 1-2,text,true,,165061,0,2,2,null,0,0,0
+1714081570957,8603,ObtienePedidos,200,OK,Grupo de Hilos 1-1,text,true,,170046,423,3,3,https://us-central1-getm-stg.cloudfunctions.net/ObtienePedidos,8596,0,0
+1714081579554,7,ObtienePedidos-0,200,OK,Grupo de Hilos 1-1,text,true,,164562,0,3,3,null,0,0,0
+1714081577216,2544,ObtieneProductos,200,OK,Grupo de Hilos 1-3,text,true,,247889,425,3,3,https://us-central1-getm-stg.cloudfunctions.net/ObtieneProductos,2368,0,127
+1714081579760,0,ObtieneProductos-0,200,OK,Grupo de Hilos 1-3,text,true,,4291,0,3,3,null,0,0,0
+1714081571578,8857,ObtienePedidos,200,OK,Grupo de Hilos 1-2,text,true,,168522,423,3,3,https://us-central1-getm-stg.cloudfunctions.net/ObtienePedidos,8848,0,0
+1714081580428,8,ObtienePedidos-0,200,OK,Grupo de Hilos 1-2,text,true,,166245,0,3,3,null,0,0,0
+1714081584692,1676,ObtienePromocionesEcommerce,200,OK,Grupo de Hilos 1-3,text,true,,166705,416,1,1,https://us-central1-getm-stg.cloudfunctions.net/ObtienePromocionesEcommerce,1669,0,0
+1714081586361,7,ObtienePromocionesEcommerce-0,200,OK,Grupo de Hilos 1-3,text,true,,164508,0,1,1,null,0,0,0
+1714081590011,1824,ObtieneProductosPromocion,200,OK,Grupo de Hilos 1-3,text,true,,166531,446,1,1,https://us-central1-getm-stg.cloudfunctions.net/ObtieneProductosPromocion,1803,0,0
+1714081591815,21,ObtieneProductosPromocion-0,200,OK,Grupo de Hilos 1-3,text,true,,165058,0,1,1,null,0,0,0
+1714081594314,1178,ObtienePedidos,200,OK,Grupo de Hilos 1-3,text,true,,173234,423,1,1,https://us-central1-getm-stg.cloudfunctions.net/ObtienePedidos,1156,0,0
+1714081595477,15,ObtienePedidos-0,200,OK,Grupo de Hilos 1-3,text,true,,166289,0,1,1,null,0,0,0

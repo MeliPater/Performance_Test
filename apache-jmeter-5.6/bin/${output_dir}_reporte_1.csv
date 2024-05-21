@@ -1,0 +1,12 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1715007895436,1768,QRY dev - Obtener ID_Bodega y NUD,200,OK,setUp Conexión BD 1-1,text,true,,22,0,1,1,null,1767,0,1640
+1715007897267,3191,ObtienePedidos,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Grupo de Hilos 1-1,text,false,,12452,0,1,1,https://us-central1-gepp-dev.cloudfunctions.net/ObtienePedidos,0,0,196
+1715007900457,1,ObtienePedidos-0,200,OK,Grupo de Hilos 1-1,text,true,,9317,0,1,1,null,0,0,0
+1715007935429,1761,QRY dev - Obtener ID_Bodega y NUD,200,OK,setUp Conexión BD 1-1,text,true,,22,0,1,1,null,1760,0,1646
+1715007937252,8819,ObtienePedidos,200,OK,Grupo de Hilos 1-1,text,true,,10841,420,1,1,https://us-central1-gepp-dev.cloudfunctions.net/ObtienePedidos,8816,0,114
+1715007946068,3,ObtienePedidos-0,200,OK,Grupo de Hilos 1-1,text,true,,9351,0,1,1,null,0,0,0
+1715008047042,1856,QRY dev - Obtener ID_Bodega y NUD,200,OK,setUp Conexión BD 1-1,text,true,,22,0,1,1,null,1855,0,1745
+1715008048958,1062,ObtienePedidos,200,OK,Grupo de Hilos 1-1,text,true,,10840,420,1,1,https://us-central1-gepp-dev.cloudfunctions.net/ObtienePedidos,1057,0,120
+1715008050016,4,ObtienePedidos-0,200,OK,Grupo de Hilos 1-1,text,true,,9350,0,1,1,null,0,0,0
+1715008052799,11350,ObtienePedidoDetalle,200,OK,Grupo de Hilos 1-1,text,true,,11155,431,1,1,https://us-central1-gepp-dev.cloudfunctions.net/ObtienePedidoDetalle,11347,0,0
+1715008064146,3,ObtienePedidoDetalle-0,200,OK,Grupo de Hilos 1-1,text,true,,9446,0,1,1,null,0,0,0

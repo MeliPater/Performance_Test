@@ -1,0 +1,3031 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Plan de Pruebas GETM">
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="NumHilos" elementType="Argument">
+            <stringProp name="Argument.name">NumHilos</stringProp>
+            <stringProp name="Argument.value">5</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="NumIteracciones" elementType="Argument">
+            <stringProp name="Argument.name">NumIteracciones</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="RampaSubida" elementType="Argument">
+            <stringProp name="Argument.name">RampaSubida</stringProp>
+            <stringProp name="Argument.value">60</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="fileName" elementType="Argument">
+            <stringProp name="Argument.name">fileName</stringProp>
+            <stringProp name="Argument.value">GETM_Bitácora</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath">/Users/mpaterninaj/Downloads/sqljdbc_12.6/enu/jars/mssql-jdbc-12.6.1.jre11.jar</stringProp>
+    </TestPlan>
+    <hashTree>
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="setUp Conexión BD">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </SetupThreadGroup>
+      <hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="GETM_DEV" enabled="false">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="URL_BD" elementType="Argument">
+              <stringProp name="Argument.name">URL_BD</stringProp>
+              <stringProp name="Argument.value">jdbc:sqlserver://;serverName=gepp-dev.database.windows.net;databaseName=getm-dev</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">URL de la Base de Datos</stringProp>
+            </elementProp>
+            <elementProp name="userName" elementType="Argument">
+              <stringProp name="Argument.name">userName</stringProp>
+              <stringProp name="Argument.value">qa_melissapaternina</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Usuario para conexión a la BD</stringProp>
+            </elementProp>
+            <elementProp name="password" elementType="Argument">
+              <stringProp name="Argument.name">password</stringProp>
+              <stringProp name="Argument.value">WA6LbFL1TBOK5Fr</stringProp>
+              <stringProp name="Argument.desc">Clave para conexión a la BD</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="serverName" elementType="Argument">
+              <stringProp name="Argument.name">serverName</stringProp>
+              <stringProp name="Argument.value">us-central1-gepp-dev.cloudfunctions.net</stringProp>
+              <stringProp name="Argument.desc">URL del servidor</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="port" elementType="Argument">
+              <stringProp name="Argument.name">port</stringProp>
+              <stringProp name="Argument.value">443</stringProp>
+              <stringProp name="Argument.desc">Puerto del servicio</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="NumUsuariosBD" elementType="Argument">
+              <stringProp name="Argument.name">NumUsuariosBD</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Número de usuarios a probar</stringProp>
+            </elementProp>
+          </collectionProp>
+          <stringProp name="TestPlan.comments">Variables de configuración - Ambiente de desarrollo</stringProp>
+        </Arguments>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="GETM_STG">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="URL_BD" elementType="Argument">
+              <stringProp name="Argument.name">URL_BD</stringProp>
+              <stringProp name="Argument.value">jdbc:sqlserver://;serverName=mx-gepp-getml-sql-server-001-stg.database.windows.net;databaseName=mx-gepp-getm-db-001-stg</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">URL de la Base de Datos</stringProp>
+            </elementProp>
+            <elementProp name="userName" elementType="Argument">
+              <stringProp name="Argument.name">userName</stringProp>
+              <stringProp name="Argument.value">qa_melissa</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Usuario para conexión a la BD</stringProp>
+            </elementProp>
+            <elementProp name="password" elementType="Argument">
+              <stringProp name="Argument.name">password</stringProp>
+              <stringProp name="Argument.value">F_aBeZi6RuNe5ls</stringProp>
+              <stringProp name="Argument.desc">Clave para conexión a la BD</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="serverName" elementType="Argument">
+              <stringProp name="Argument.name">serverName</stringProp>
+              <stringProp name="Argument.value">us-central1-getm-stg.cloudfunctions.net</stringProp>
+              <stringProp name="Argument.desc">URL del servidor</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="port" elementType="Argument">
+              <stringProp name="Argument.name">port</stringProp>
+              <stringProp name="Argument.value">443</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Puerto del servidor</stringProp>
+            </elementProp>
+            <elementProp name="NumUsuariosBD" elementType="Argument">
+              <stringProp name="Argument.name">NumUsuariosBD</stringProp>
+              <stringProp name="Argument.value">600</stringProp>
+              <stringProp name="Argument.desc">Número de usuarios a probar</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="output_dir" elementType="Argument">
+              <stringProp name="Argument.name">output_dir</stringProp>
+              <stringProp name="Argument.value">/Users/mpaterninaj/Downloads/apache-jmeter-5.6.3/Reportes GETM</stringProp>
+              <stringProp name="Argument.desc">Ruta donde se guarda el reporte</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="passLogin" elementType="Argument">
+              <stringProp name="Argument.name">passLogin</stringProp>
+              <stringProp name="Argument.value">Gepp2020</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+          <stringProp name="TestPlan.comments">Variables de configuración - Ambiente de staging (preproducción)</stringProp>
+        </Arguments>
+        <hashTree/>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="Conexión BD" enabled="true">
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="checkQuery"></stringProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="connectionProperties"></stringProp>
+          <stringProp name="dataSource">Test_pool</stringProp>
+          <stringProp name="dbUrl">${URL_BD}</stringProp>
+          <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
+          <stringProp name="initQuery"></stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="password">${password}</stringProp>
+          <stringProp name="poolMax">0</stringProp>
+          <boolProp name="preinit">false</boolProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <stringProp name="username">${userName}</stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="QRY - Obtener ID_Bodega y NUD">
+          <stringProp name="dataSource">Test_pool</stringProp>
+          <stringProp name="query">SELECT TOP(${NumUsuariosBD})
+t.ID_Bodega, t.NUD, t.Telefono--, t.Contrasena,t.ID_Tendero, tr.ID_Tendero
+FROM Tenderos t
+INNER JOIN Pedidos p  
+	ON t.ID_Tendero = p.ID_Tendero
+WHERE 	
+t.Activo=1
+AND t.FechaUltimoPedido &gt;=&apos;2024-01-01 00:00:00.000&apos;
+AND t.RutaEcommerce !=&apos;&apos;
+AND t.ID_DescuentoComercialFijo =&apos;&apos;
+AND t.ID_ListaPreciosEspecial =&apos;&apos;
+AND t.Telefono != &apos;&apos;
+AND t.Telefono NOT LIKE&apos;%T%&apos;
+AND t.Contrasena !=&apos;&apos;
+GROUP BY t.ID_Bodega,t.NUD,t.Telefono
+ORDER BY t.ID_Bodega,t.NUD,t.Telefono;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames">ID_Bodega, NUD, Telefono</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Variables Globales (ID_Bodega - NUD)">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">try {
+
+	def totalUsers = Integer.parseInt(vars.get(&quot;NumUsuariosBD&quot;))
+	//def controllerIteration = totalUsers - 1
+	//props.put(&quot;controllerIteration&quot;, controllerIteration)
+
+	//log.info(&quot;Cantidad de usuarios : &quot; + totalUsers);
+	
+	if (totalUsers != 0) {
+		for (int i = 1; i &lt;= totalUsers; i++) {
+		    def bodega = vars.get(&quot;ID_Bodega_&quot; + i)
+		    def nuds = vars.get(&quot;NUD_&quot; + i)
+		    def telefono = vars.get(&quot;Telefono_&quot; + i)
+		    
+		    props.put(&quot;ID_Bodega_&quot; + i, bodega)
+		    props.put(&quot;NUD_&quot; + i, nuds)
+		    props.put(&quot;Telefono_&quot; + i, telefono)
+		    
+		    //log.info(&quot;El ID_Bodega_n es :&quot; + bodega);
+		    //log.info(&quot;El NUD_n es :&quot; + nuds);
+		}
+	} else {
+		log.error(&quot;No se encontraron usuarios en la Base de datos.&quot;);
+	}
+} catch (Exception e) {
+	log.error(&quot;Error al almacenar las variables : &quot; + e.toString());
+}</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+          <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="false">
+            <boolProp name="displayJMeterProperties">true</boolProp>
+            <boolProp name="displayJMeterVariables">true</boolProp>
+            <boolProp name="displaySamplerProperties">true</boolProp>
+            <boolProp name="displaySystemProperties">false</boolProp>
+          </DebugPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Controlador Transaction" enabled="false">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+        </TransactionController>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Grupo de Hilos" enabled="false">
+        <stringProp name="ThreadGroup.num_threads">${NumHilos}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${RampaSubida}</stringProp>
+        <longProp name="ThreadGroup.duration">3600</longProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">startnextloop</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle">
+          <stringProp name="LoopController.loops">${NumIteracciones}</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Gestor de Headers HTTP" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Cache-Control</stringProp>
+              <stringProp name="Header.value">no-cache</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">*/*</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Encoding</stringProp>
+              <stringProp name="Header.value">gzip, deflate, br</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Connection</stringProp>
+              <stringProp name="Header.value">keep-alive</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Contador" enabled="true">
+          <stringProp name="CounterConfig.start">1</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">index</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+          <stringProp name="TestPlan.comments">Para contar iteraciones del controlador</stringProp>
+        </CounterConfig>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Plan I - Solo Login"/>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Login" enabled="true"/>
+          <hashTree>
+            <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ID_Bodega: ${__property(ID_Bodega_${index})} - NUD: ${__property(NUD_${index})}" enabled="false">
+              <boolProp name="WAITING">true</boolProp>
+              <boolProp name="SUCCESFULL">true</boolProp>
+              <stringProp name="RESPONSE_CODE">200</stringProp>
+              <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+              <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_TIME">${__Random(30,500)}</stringProp>
+              <stringProp name="LATENCY">${__Random(1,30)}</stringProp>
+              <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+              <stringProp name="URL"></stringProp>
+              <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+            </kg.apc.jmeter.samplers.DummySampler>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="AuthenticateTenderoLogin">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/spS_AuthenticateTenderoLogin_V2</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: {&#xd;
+        &quot;Telefono&quot;: &quot;${__P(Telefono_${index})}&quot;,&#xd;
+        &quot;Contrasena&quot;: &quot;${passLogin}&quot;,&#xd;
+        &quot;Token&quot;: &quot;00000000-0000-0000-99AAA-XXXXXXXXXXXX&quot;,&#xd;
+        &quot;TokenFirebase&quot;: &quot;00000000-0000-0000-99AAA-XXXXXXXXXXXX&quot;,&#xd;
+        &quot;Version&quot;: &quot;v9.9.0 (999)&quot;,&#xd;
+        &quot;DeviceID&quot;: &quot;00000000-0000-0000-99AAA-XXXXXXXXXXXX&quot;,&#xd;
+        &quot;DeviceInfo&quot;: &quot;Postman Client - 0&quot;,&#xd;
+        &quot;offset&quot;: &quot;-6&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Cancelar Pedido" enabled="false"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CancelaPedido" enabled="false">
+            <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+            <stringProp name="HTTPSampler.port">${port}</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">/CancelaPedido</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: &#xd;
+    {&#xd;
+        &quot;bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;nud&quot;: ${__V(nud_${index})},&#xd;
+        &quot;offset&quot;: -6&#xd;
+    }&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Plan II - Solo Consultas" enabled="false"/>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Productos" enabled="false"/>
+          <hashTree>
+            <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ID_Bodega: ${__property(ID_Bodega_${index})} - NUD: ${__property(NUD_${index})}" enabled="false">
+              <boolProp name="WAITING">true</boolProp>
+              <boolProp name="SUCCESFULL">true</boolProp>
+              <stringProp name="RESPONSE_CODE">200</stringProp>
+              <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+              <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_TIME">${__Random(30,500)}</stringProp>
+              <stringProp name="LATENCY">${__Random(1,30)}</stringProp>
+              <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+              <stringProp name="URL"></stringProp>
+              <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+            </kg.apc.jmeter.samplers.DummySampler>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtieneProductos" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtieneProductos</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;:&#xd;
+    {&#xd;
+        &quot;bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;nud&quot;: ${__P(NUD_${index})},&#xd;
+        &quot;offset&quot;: -6&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regex SKU y Precio" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">DatosProducto</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;id_producto&quot;:(\d+).+?&quot;precio&quot;:(\d*.?\d+)</stringProp>
+                <stringProp name="RegexExtractor.template">$1$ $2$</stringProp>
+                <stringProp name="RegexExtractor.default">NOT FOUND</stringProp>
+                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+                <stringProp name="RegexExtractor.match_number">-1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+            </hashTree>
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="Log Productos" enabled="false">
+              <stringProp name="ForeachController.inputVal">DatosProducto</stringProp>
+              <stringProp name="ForeachController.returnVal">DatosProducto</stringProp>
+              <boolProp name="ForeachController.useSeparator">true</boolProp>
+              <stringProp name="ForeachController.endIndex">5</stringProp>
+              <stringProp name="TestPlan.comments">Se mueve entre los diferentes productos que tiene el usuario</stringProp>
+            </ForeachController>
+            <hashTree>
+              <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ${DatosProducto}" enabled="true">
+                <boolProp name="WAITING">true</boolProp>
+                <boolProp name="SUCCESFULL">true</boolProp>
+                <stringProp name="RESPONSE_CODE">200</stringProp>
+                <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+                <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+                <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+                <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+                <stringProp name="URL"></stringProp>
+                <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+              </kg.apc.jmeter.samplers.DummySampler>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Promociones" enabled="false"/>
+          <hashTree>
+            <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ID_Bodega: ${__property(ID_Bodega_${index})} - NUD: ${__property(NUD_${index})}" enabled="false">
+              <boolProp name="WAITING">true</boolProp>
+              <boolProp name="SUCCESFULL">true</boolProp>
+              <stringProp name="RESPONSE_CODE">200</stringProp>
+              <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+              <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_TIME">${__Random(30,500)}</stringProp>
+              <stringProp name="LATENCY">${__Random(1,30)}</stringProp>
+              <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+              <stringProp name="URL"></stringProp>
+              <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+            </kg.apc.jmeter.samplers.DummySampler>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtienePromocionesEcommerce" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtienePromocionesEcommerce</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: &#xd;
+    {&#xd;
+        &quot;ID_Bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;NUD&quot;: ${__P(NUD_${index})}&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regex ClavePromo" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">DatosPromo</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;TipoPromocion&quot;:&quot;ESTATICO&quot;.*?&quot;ClavePromo&quot;:&quot;(\d+)&quot;.*?&quot;TotalNiveles&quot;:(\d+)</stringProp>
+                <stringProp name="RegexExtractor.template">$1$ $2$</stringProp>
+                <stringProp name="RegexExtractor.default">NOT FOUND</stringProp>
+                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+                <stringProp name="RegexExtractor.match_number">-1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+            </hashTree>
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="Log Promos Estáticas" enabled="false">
+              <stringProp name="ForeachController.inputVal">DatosPromo</stringProp>
+              <stringProp name="ForeachController.returnVal">DatosPromo</stringProp>
+              <boolProp name="ForeachController.useSeparator">true</boolProp>
+              <stringProp name="TestPlan.comments">Se mueve entre las diferentes promos estáticas que tiene el usuario</stringProp>
+            </ForeachController>
+            <hashTree>
+              <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ${DatosPromo}" enabled="true">
+                <boolProp name="WAITING">true</boolProp>
+                <boolProp name="SUCCESFULL">true</boolProp>
+                <stringProp name="RESPONSE_CODE">200</stringProp>
+                <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+                <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+                <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+                <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+                <stringProp name="URL"></stringProp>
+                <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+              </kg.apc.jmeter.samplers.DummySampler>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Productos Promoción" enabled="false"/>
+          <hashTree>
+            <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ID_Bodega: ${__property(ID_Bodega_${index})} - NUD: ${__property(NUD_${index})}" enabled="false">
+              <boolProp name="WAITING">true</boolProp>
+              <boolProp name="SUCCESFULL">true</boolProp>
+              <stringProp name="RESPONSE_CODE">200</stringProp>
+              <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+              <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_TIME">${__Random(30,500)}</stringProp>
+              <stringProp name="LATENCY">${__Random(1,30)}</stringProp>
+              <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+              <stringProp name="URL"></stringProp>
+              <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+            </kg.apc.jmeter.samplers.DummySampler>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtieneProductosPromocion" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtieneProductosPromocion</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;:&#xd;
+    {&#xd;
+        &quot;ID_Bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;NUD&quot;: ${__P(NUD_${index})},&#xd;
+        &quot;ClavePromo&quot;: &quot;${DatosPromo_1_g1}&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regex ClaveProducto, precios y nivel" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">DatosPropro</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;id_producto&quot;:(\d+).+?&quot;precio&quot;:(\d*.?\d+).+?&quot;precio_original&quot;:(\d*.?\d+).+?&quot;Maximo&quot;:(\d+).+?&quot;Nivel&quot;:(\d+)</stringProp>
+                <stringProp name="RegexExtractor.template">$1$ $2$ $3$ $4$ $5$</stringProp>
+                <stringProp name="RegexExtractor.default">NOT FOUND</stringProp>
+                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+                <stringProp name="RegexExtractor.match_number">-1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+            </hashTree>
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="Log Productos Promo Estática" enabled="false">
+              <stringProp name="ForeachController.inputVal">DatosPropro</stringProp>
+              <stringProp name="ForeachController.returnVal">DatosPropro</stringProp>
+              <boolProp name="ForeachController.useSeparator">true</boolProp>
+              <stringProp name="TestPlan.comments">Se mueve entre los productos que posee la promo estática</stringProp>
+              <stringProp name="ForeachController.startIndex">0</stringProp>
+            </ForeachController>
+            <hashTree>
+              <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ${DatosPropro}" enabled="true">
+                <boolProp name="WAITING">true</boolProp>
+                <boolProp name="SUCCESFULL">true</boolProp>
+                <stringProp name="RESPONSE_CODE">200</stringProp>
+                <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+                <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+                <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+                <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+                <stringProp name="URL"></stringProp>
+                <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+              </kg.apc.jmeter.samplers.DummySampler>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Pedidos" enabled="true"/>
+          <hashTree>
+            <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ID_Bodega: ${__property(ID_Bodega_${index})} - NUD: ${__property(NUD_${index})}" enabled="false">
+              <boolProp name="WAITING">true</boolProp>
+              <boolProp name="SUCCESFULL">true</boolProp>
+              <stringProp name="RESPONSE_CODE">200</stringProp>
+              <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+              <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_TIME">${__Random(30,500)}</stringProp>
+              <stringProp name="LATENCY">${__Random(1,30)}</stringProp>
+              <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+              <stringProp name="URL"></stringProp>
+              <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+            </kg.apc.jmeter.samplers.DummySampler>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtienePedidos" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtienePedidos</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;:&#xd;
+    {&#xd;
+        &quot;bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;nud&quot;: ${__P(NUD_${index})},&#xd;
+        &quot;offset&quot;: -6&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regex para obtener ID_Pedido" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">ID_Pedido</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;id_pedido&quot;\s*:\s*(\d+)</stringProp>
+                <stringProp name="RegexExtractor.template">$1$</stringProp>
+                <stringProp name="RegexExtractor.default">NOT FOUND</stringProp>
+                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+                <stringProp name="RegexExtractor.match_number"></stringProp>
+              </RegexExtractor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Pedido Detalle" enabled="true"/>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Dynamic JSON PedidoDetalle" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+
+try {
+	// Obtener el valor de las variables Properties JMeter
+	def ID_Bodega = props.get(&quot;ID_Bodega_${index}&quot;)
+	def NUD = props.get(&quot;NUD_${index}&quot;)
+	def ID_Pedido = vars.get(&quot;ID_Pedido_g1&quot;)
+	log.info(&quot;Número del pedido : &quot; + ID_Pedido)
+	
+	// Crea el objeto JSON base
+	def data = [:]
+	data[&quot;ID_Bodega&quot;] = ID_Bodega
+	data[&quot;NUD&quot;] = NUD
+	log.info(&quot;Base del JSON : &quot; + data);
+         
+	if (ID_Pedido != null) {
+		
+		data[&quot;ID_Pedido&quot;] = ID_Pedido
+		
+		// Convertir el objeto JSON a String y asignarlo al Body Data
+		vars.put(&quot;jsonDataPedido&quot;, JsonOutput.toJson(data))
+		log.info(&quot;Body data :&quot; + data);
+	} else {
+		
+		data[&quot;ID_Pedido&quot;] = 0
+		
+		// Convertir el objeto JSON a String y asignarlo al Body Data
+		vars.put(&quot;jsonDataPedido&quot;, JsonOutput.toJson(data))
+		log.info(&quot;Body data :&quot; + data);
+	}
+} catch (Exception e) {
+	log.error(&quot;Error al generar el JSON: &quot; + e.toString());
+}</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtienePedidoDetalle" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtienePedidoDetalle</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: &#xd;
+    		${jsonDataPedido}&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Notificaciones" enabled="false"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtieneNotificacionTendero" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtieneNotificacionTendero</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: {&#xd;
+        &quot;ID_Bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;NUD&quot;: ${__P(NUD_${index})},&#xd;
+        &quot;Version&quot;: &quot;6.9.1 (203)&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Plan III - Envío de pedido + Consultas" enabled="false"/>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Productos" enabled="true"/>
+          <hashTree>
+            <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ID_Bodega: ${__property(ID_Bodega_${index})} - NUD: ${__property(NUD_${index})}" enabled="false">
+              <boolProp name="WAITING">true</boolProp>
+              <boolProp name="SUCCESFULL">true</boolProp>
+              <stringProp name="RESPONSE_CODE">200</stringProp>
+              <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+              <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_TIME">${__Random(30,500)}</stringProp>
+              <stringProp name="LATENCY">${__Random(1,30)}</stringProp>
+              <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+              <stringProp name="URL"></stringProp>
+              <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+            </kg.apc.jmeter.samplers.DummySampler>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtieneProductos" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtieneProductos</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;:&#xd;
+    {&#xd;
+        &quot;bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;nud&quot;: ${__P(NUD_${index})},&#xd;
+        &quot;offset&quot;: -6&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regex SKU y Precio" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">DatosProducto</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;id_producto&quot;:(\d+).+?&quot;precio&quot;:(\d*.?\d+)</stringProp>
+                <stringProp name="RegexExtractor.template">$1$ $2$</stringProp>
+                <stringProp name="RegexExtractor.default">NOT FOUND</stringProp>
+                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+                <stringProp name="RegexExtractor.match_number">-1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+            </hashTree>
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="Log Productos" enabled="false">
+              <stringProp name="ForeachController.inputVal">DatosProducto</stringProp>
+              <stringProp name="ForeachController.returnVal">DatosProducto</stringProp>
+              <boolProp name="ForeachController.useSeparator">true</boolProp>
+              <stringProp name="ForeachController.endIndex">5</stringProp>
+              <stringProp name="TestPlan.comments">Se mueve entre los diferentes productos que tiene el usuario</stringProp>
+            </ForeachController>
+            <hashTree>
+              <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ${DatosProducto}" enabled="true">
+                <boolProp name="WAITING">true</boolProp>
+                <boolProp name="SUCCESFULL">true</boolProp>
+                <stringProp name="RESPONSE_CODE">200</stringProp>
+                <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+                <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+                <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+                <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+                <stringProp name="URL"></stringProp>
+                <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+              </kg.apc.jmeter.samplers.DummySampler>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Promociones" enabled="true"/>
+          <hashTree>
+            <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ID_Bodega: ${__property(ID_Bodega_${index})} - NUD: ${__property(NUD_${index})}" enabled="false">
+              <boolProp name="WAITING">true</boolProp>
+              <boolProp name="SUCCESFULL">true</boolProp>
+              <stringProp name="RESPONSE_CODE">200</stringProp>
+              <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+              <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_TIME">${__Random(30,500)}</stringProp>
+              <stringProp name="LATENCY">${__Random(1,30)}</stringProp>
+              <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+              <stringProp name="URL"></stringProp>
+              <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+            </kg.apc.jmeter.samplers.DummySampler>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtienePromocionesEcommerce" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtienePromocionesEcommerce</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: &#xd;
+    {&#xd;
+        &quot;ID_Bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;NUD&quot;: ${__P(NUD_${index})}&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regex ClavePromo" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">DatosPromo</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;TipoPromocion&quot;:&quot;ESTATICO&quot;.*?&quot;ClavePromo&quot;:&quot;(\d+)&quot;.*?&quot;TotalNiveles&quot;:(\d+)</stringProp>
+                <stringProp name="RegexExtractor.template">$1$ $2$</stringProp>
+                <stringProp name="RegexExtractor.default">NOT FOUND</stringProp>
+                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+                <stringProp name="RegexExtractor.match_number">-1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+            </hashTree>
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="Log Promos Estáticas" enabled="false">
+              <stringProp name="ForeachController.inputVal">DatosPromo</stringProp>
+              <stringProp name="ForeachController.returnVal">DatosPromo</stringProp>
+              <boolProp name="ForeachController.useSeparator">true</boolProp>
+              <stringProp name="TestPlan.comments">Se mueve entre las diferentes promos estáticas que tiene el usuario</stringProp>
+            </ForeachController>
+            <hashTree>
+              <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ${DatosPromo}" enabled="true">
+                <boolProp name="WAITING">true</boolProp>
+                <boolProp name="SUCCESFULL">true</boolProp>
+                <stringProp name="RESPONSE_CODE">200</stringProp>
+                <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+                <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+                <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+                <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+                <stringProp name="URL"></stringProp>
+                <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+              </kg.apc.jmeter.samplers.DummySampler>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Productos Promoción" enabled="true"/>
+          <hashTree>
+            <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ID_Bodega: ${__property(ID_Bodega_${index})} - NUD: ${__property(NUD_${index})}" enabled="false">
+              <boolProp name="WAITING">true</boolProp>
+              <boolProp name="SUCCESFULL">true</boolProp>
+              <stringProp name="RESPONSE_CODE">200</stringProp>
+              <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+              <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_TIME">${__Random(30,500)}</stringProp>
+              <stringProp name="LATENCY">${__Random(1,30)}</stringProp>
+              <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+              <stringProp name="URL"></stringProp>
+              <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+            </kg.apc.jmeter.samplers.DummySampler>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtieneProductosPromocion" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtieneProductosPromocion</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;:&#xd;
+    {&#xd;
+        &quot;ID_Bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;NUD&quot;: ${__P(NUD_${index})},&#xd;
+        &quot;ClavePromo&quot;: &quot;${DatosPromo_1_g1}&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regex ClaveProducto, precios y nivel" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">DatosPropro</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;id_producto&quot;:(\d+).+?&quot;precio&quot;:(\d*.?\d+).+?&quot;precio_original&quot;:(\d*.?\d+).+?&quot;Maximo&quot;:(\d+).+?&quot;Nivel&quot;:(\d+)</stringProp>
+                <stringProp name="RegexExtractor.template">$1$ $2$ $3$ $4$ $5$</stringProp>
+                <stringProp name="RegexExtractor.default">NOT FOUND</stringProp>
+                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+                <stringProp name="RegexExtractor.match_number">-1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+            </hashTree>
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="Log Productos Promo Estática" enabled="false">
+              <stringProp name="ForeachController.inputVal">DatosPropro</stringProp>
+              <stringProp name="ForeachController.returnVal">DatosPropro</stringProp>
+              <boolProp name="ForeachController.useSeparator">true</boolProp>
+              <stringProp name="TestPlan.comments">Se mueve entre los productos que posee la promo estática</stringProp>
+              <stringProp name="ForeachController.startIndex">0</stringProp>
+            </ForeachController>
+            <hashTree>
+              <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ${DatosPropro}" enabled="true">
+                <boolProp name="WAITING">true</boolProp>
+                <boolProp name="SUCCESFULL">true</boolProp>
+                <stringProp name="RESPONSE_CODE">200</stringProp>
+                <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+                <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+                <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+                <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+                <stringProp name="URL"></stringProp>
+                <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+              </kg.apc.jmeter.samplers.DummySampler>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Pedidos" enabled="true"/>
+          <hashTree>
+            <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ID_Bodega: ${__property(ID_Bodega_${index})} - NUD: ${__property(NUD_${index})}" enabled="false">
+              <boolProp name="WAITING">true</boolProp>
+              <boolProp name="SUCCESFULL">true</boolProp>
+              <stringProp name="RESPONSE_CODE">200</stringProp>
+              <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+              <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+              <stringProp name="RESPONSE_TIME">${__Random(30,500)}</stringProp>
+              <stringProp name="LATENCY">${__Random(1,30)}</stringProp>
+              <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+              <stringProp name="URL"></stringProp>
+              <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+            </kg.apc.jmeter.samplers.DummySampler>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtienePedidos" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtienePedidos</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;:&#xd;
+    {&#xd;
+        &quot;bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;nud&quot;: ${__P(NUD_${index})},&#xd;
+        &quot;offset&quot;: -6&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Pedido Detalle" enabled="true"/>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Dynamic JSON PedidoDetalle" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+
+try {
+	// Obtener el valor de las variables Properties JMeter
+	def ID_Bodega = props.get(&quot;ID_Bodega_${index}&quot;)
+	def NUD = props.get(&quot;NUD_${index}&quot;)
+	def ID_Pedido = vars.get(&quot;ID_Pedido_g1&quot;)
+	log.info(&quot;Número del pedido : &quot; + ID_Pedido)
+	
+	// Crea el objeto JSON base
+	def data = [:]
+	data[&quot;ID_Bodega&quot;] = ID_Bodega
+	data[&quot;NUD&quot;] = NUD
+	log.info(&quot;Base del JSON : &quot; + data);
+         
+	if (ID_Pedido != null) {
+		
+		data[&quot;ID_Pedido&quot;] = ID_Pedido
+		
+		// Convertir el objeto JSON a String y asignarlo al Body Data
+		vars.put(&quot;jsonDataPedido&quot;, JsonOutput.toJson(data))
+		log.info(&quot;Body data :&quot; + data);
+	} else {
+		
+		data[&quot;ID_Pedido&quot;] = 0
+		
+		// Convertir el objeto JSON a String y asignarlo al Body Data
+		vars.put(&quot;jsonDataPedido&quot;, JsonOutput.toJson(data))
+		log.info(&quot;Body data :&quot; + data);
+	}
+} catch (Exception e) {
+	log.error(&quot;Error al generar el JSON: &quot; + e.toString());
+}</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtienePedidoDetalle" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtienePedidoDetalle</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: &#xd;
+    		${jsonDataPedido}&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Agrega productos a Carrito" enabled="true"/>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Dynamic JSON CarritoTendero" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+
+//Función para generar los pedidos con productos y promos
+def cart_buildPedidoItem(claveProducto_c, clavePromo_c, quantity_c, nivel_c, modelo_c) {
+    return [
+        &quot;ClaveProducto&quot;: claveProducto_c,
+        &quot;ClavePromo&quot;: clavePromo_c,
+        &quot;Quantity&quot;: quantity_c,
+        &quot;Nivel&quot;: nivel_c,
+        &quot;Modelo&quot;: modelo_c
+    ]
+}
+
+try {
+	// Obtener el valor de las variables Properties JMeter
+	def Bodega_c = props.get(&quot;ID_Bodega_${index}&quot;)
+	def NUD_c = props.get(&quot;NUD_${index}&quot;)
+	def cantidadProductos_c = Integer.parseInt(vars.get(&quot;DatosPropro_matchNr&quot;))
+	//log.info(&quot;Cantidad de productos de la promo : &quot; + cantidadProductos_c)
+	
+	// Crea el objeto JSON base
+	def dataCart = [:]
+	dataCart[&quot;ID_Bodega&quot;] = Bodega_c
+	dataCart[&quot;NUD&quot;] = NUD_c
+	dataCart[&quot;redsocial&quot;] = 1
+	//log.info(&quot;Base del JSON : &quot; + dataCart);
+
+	def pedidoCart = []
+
+	// 5 Productos Full Price
+	(1..5).each { i -&gt;
+       def claveProducto_c = vars.get(&quot;DatosProducto_&quot; + i + &quot;_g1&quot;)
+       pedidoCart.add(cart_buildPedidoItem(claveProducto_c, null, 5, null, null))
+	}
+	
+	dataCart[&quot;Pedido&quot;] = pedidoCart
+          
+	if (cantidadProductos_c != 0) {
+
+          // Productos que contiene la promoción
+          (1..cantidadProductos_c).each { i -&gt;
+            def claveProducto_c = vars.get(&quot;DatosPropro_&quot; + i + &quot;_g1&quot;)
+            def clavePromo_c = vars.get(&quot;DatosPromo_1_g1&quot;)
+            def quantity_c = vars.get(&quot;DatosPropro_&quot; + i + &quot;_g4&quot;)
+            def nivel_c = vars.get(&quot;DatosPropro_&quot; + i + &quot;_g5&quot;)
+            pedidoCart.add(cart_buildPedidoItem(claveProducto_c, clavePromo_c, quantity_c, nivel_c, null))
+          }
+
+		dataCart[&quot;Pedido&quot;] = pedidoCart
+		//log.info(&quot;JSon con la base + productos : &quot; + dataCart);
+
+		// Promoción
+		def promoCart = []
+		promoCart.add([&quot;ClavePromo&quot;: vars.get(&quot;DatosPromo_1_g1&quot;), &quot;PaquetesCanjeados&quot;: 1])
+
+		dataCart[&quot;Promos&quot;] = promoCart
+
+		// Convertir el objeto JSON a String y asignarlo al Body Data
+		vars.put(&quot;jsonDataCart&quot;, JsonOutput.toJson(dataCart))
+		//log.info(&quot;Body data :&quot; + dataCart);
+
+	} else {
+		// Sin promoción
+		//log.info(&quot;El usuario no tiene promos.&quot;);
+
+		dataCart[&quot;Promos&quot;] = []
+		vars.put(&quot;jsonDataCart&quot;, JsonOutput.toJson(dataCart))
+		
+	}
+} catch (Exception e) {
+	log.error(&quot;Error al generar el JSON: &quot; + e.toString());
+}</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CarritoTendero" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/CarritoTendero</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: &#xd;
+        ${jsonDataCart}&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Genera Pedido" enabled="true"/>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Dynamic JSON EnviaPedido" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+
+//Función para generar los pedidos con productos y promos
+def shipp_buildPedidoItem(claveProducto_s, quantity_s, unitPrice_s, clavePromo_s, descuento_s, nivel_s, modelo_s) {
+    return [
+        &quot;id_producto&quot;: claveProducto_s,
+        &quot;quantity&quot;: quantity_s,
+        &quot;unit_price&quot;: unitPrice_s,
+        &quot;ClavePromo&quot;: clavePromo_s,
+        &quot;Descuento&quot;: descuento_s,
+        &quot;Nivel&quot;: nivel_s,
+        &quot;modelo&quot;: modelo_s
+    ]
+}
+
+def twoDecimal(numero) {
+    return Math.round((numero + Math.pow(10, -15)) * 100) / 100;
+}
+
+try {
+	// Obtener el valor de las variables JMeterVariables
+	def Bodega_s = Integer.parseInt(props.get(&quot;ID_Bodega_${index}&quot;))
+	def NUD_s = Integer.parseInt(props.get(&quot;NUD_${index}&quot;))
+	def cantidadProductos_s = Integer.parseInt(vars.get(&quot;DatosPropro_matchNr&quot;))
+	//log.info(&quot;Cantidad de productos de la promo : &quot; + cantidadProductos_s)
+
+	// Crea el objeto JSON base
+	def dataShipp = [:]
+	dataShipp[&quot;bodega&quot;] = Bodega_s
+	dataShipp[&quot;nud&quot;] = NUD_s
+	dataShipp[&quot;offset&quot;] = -6
+	log.info(&quot;Base del JSON : &quot; + dataShipp);
+
+	def pedidoShipp = []
+
+	// 5 Productos Full Price
+	(1..5).each { i -&gt;
+       def claveProducto_s = vars.get(&quot;DatosProducto_&quot; + i + &quot;_g1&quot;)
+       def unitPrice_s = Double.parseDouble(vars.get(&quot;DatosProducto_&quot; + i + &quot;_g2&quot;))
+
+       pedidoShipp.add(shipp_buildPedidoItem(claveProducto_s, 5, unitPrice_s, null, null, null, null))
+     }
+
+     dataShipp[&quot;pedido&quot;] = pedidoShipp
+	//log.info(&quot;JSon con la base + productos : &quot; + dataShipp);
+	
+	if (cantidadProductos_s != 0) {
+
+          // Productos que contiene la promoción
+          (1..cantidadProductos_s).each { i -&gt;
+            def claveProducto_s = vars.get(&quot;DatosPropro_&quot; + i + &quot;_g1&quot;)
+            def quantity_s = Integer.parseInt(vars.get(&quot;DatosPropro_&quot; + i + &quot;_g4&quot;))
+            def unitPrice_s = Double.parseDouble(vars.get(&quot;DatosPropro_&quot; + i + &quot;_g2&quot;)) //unit_Price = Precio
+            unitPrice_s = twoDecimal(unitPrice_s)
+            def clavePromo_s = vars.get(&quot;DatosPromo_1_g1&quot;)
+		  def descuento_s =  Double.parseDouble(vars.get(&quot;DatosPropro_&quot; + i + &quot;_g3&quot;)) - unitPrice_s //Descuento = Precio_Original - unit_price
+		  descuento_s = twoDecimal(descuento_s)
+		  log.info(&quot;unitPrice es : &quot; + unitPrice_s);
+		  log.info(&quot;Descuento vista : &quot; + descuento_s);
+            def nivel_s = Integer.parseInt(vars.get(&quot;DatosPropro_&quot; + i + &quot;_g5&quot;))
+            pedidoShipp.add(shipp_buildPedidoItem(claveProducto_s, quantity_s, unitPrice_s, clavePromo_s, descuento_s, nivel_s, null))
+          }
+
+		dataShipp[&quot;pedido&quot;] = pedidoShipp
+		//log.info(&quot;JSon con la base + productos : &quot; + dataShipp);
+
+		// Promoción
+		def promoShipp = []
+		promoShipp.add([&quot;ClavePromo&quot;: vars.get(&quot;DatosPromo_1_g1&quot;), &quot;PaquetesCanjeados&quot;: 1])
+
+		dataShipp[&quot;promos&quot;] = promoShipp
+
+		// Convertir el objeto JSON a String y asignarlo al Body Data
+		vars.put(&quot;jsonDataShipp&quot;, JsonOutput.toJson(dataShipp))
+		//log.info(&quot;Body data :&quot; + dataShipp);
+
+	} else {
+		// Sin promoción
+		//log.info(&quot;El usuario no tiene promos.&quot;);
+
+		dataShipp[&quot;Promos&quot;] = []
+		vars.put(&quot;jsonDataShipp&quot;, JsonOutput.toJson(dataShipp))
+	}
+} catch (Exception e) {
+	log.error(&quot;Error al generar el JSON: &quot; + e.toString());
+}</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EnviaPedido" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/EnviaPedido</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+  &quot;data&quot;: &#xd;
+  	${jsonDataShipp}&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Plan IV - Otros (Para ti - Tickets)" enabled="false"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtenerDatosMural" enabled="false">
+            <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+            <stringProp name="HTTPSampler.port">${port}</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">/ObtenerDatosMural</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: {&#xd;
+        &quot;ID_Bodega&quot;: ${__V(ID_Bodega_${index})},&#xd;
+        &quot;NUD&quot;: ${__V(nud_${index})},&#xd;
+        &quot;Version&quot;: &quot;6.9.1 (203)&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtieneVentasMesHistoricoTendero" enabled="false">
+            <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+            <stringProp name="HTTPSampler.port">${port}</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">/ObtieneVentasMesHistoricoTendero</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: {&#xd;
+        &quot;ID_Bodega&quot;: ${__V(ID_Bodega_${index})},&#xd;
+        &quot;NUD&quot;: ${__V(nud_${index})},&#xd;
+        &quot;Version&quot;: &quot;6.9.1 (203)&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor">
+          <boolProp name="displayJMeterProperties">true</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySamplerProperties">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugPostProcessor>
+        <hashTree/>
+      </hashTree>
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group">
+        <collectionProp name="ultimatethreadgroupdata">
+          <collectionProp name="1225490417">
+            <stringProp name="1629">30</stringProp>
+            <stringProp name="0">0</stringProp>
+            <stringProp name="48">0</stringProp>
+            <stringProp name="1722">60</stringProp>
+            <stringProp name="48">0</stringProp>
+          </collectionProp>
+        </collectionProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <intProp name="LoopController.loops">-1</intProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+      </kg.apc.jmeter.threads.UltimateThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Gestor de Headers HTTP">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Cache-Control</stringProp>
+              <stringProp name="Header.value">no-cache</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">*/*</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Encoding</stringProp>
+              <stringProp name="Header.value">gzip, deflate, br</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Contador">
+          <stringProp name="CounterConfig.start">1</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">index</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+          <stringProp name="TestPlan.comments">Para contar iteraciones del controlador</stringProp>
+        </CounterConfig>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Plan I - Solo Login"/>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Login"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="AuthenticateTenderoLogin">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/spS_AuthenticateTenderoLogin_V2</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: {&#xd;
+        &quot;Telefono&quot;: &quot;${__P(Telefono_${index})}&quot;,&#xd;
+        &quot;Contrasena&quot;: &quot;${passLogin}&quot;,&#xd;
+        &quot;Token&quot;: &quot;00000000-0000-0000-99AAA-XXXXXXXXXXXX&quot;,&#xd;
+        &quot;TokenFirebase&quot;: &quot;00000000-0000-0000-99AAA-XXXXXXXXXXXX&quot;,&#xd;
+        &quot;Version&quot;: &quot;v9.9.0 (999)&quot;,&#xd;
+        &quot;DeviceID&quot;: &quot;00000000-0000-0000-99AAA-XXXXXXXXXXXX&quot;,&#xd;
+        &quot;DeviceInfo&quot;: &quot;Postman Client - 0&quot;,&#xd;
+        &quot;offset&quot;: &quot;-6&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Plan II - Solo Consultas" enabled="false"/>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Productos" enabled="false"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtieneProductos" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtieneProductos</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;:&#xd;
+    {&#xd;
+        &quot;bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;nud&quot;: ${__P(NUD_${index})},&#xd;
+        &quot;offset&quot;: -6&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regex SKU y Precio" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">DatosProducto</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;id_producto&quot;:(\d+).+?&quot;precio&quot;:(\d*.?\d+)</stringProp>
+                <stringProp name="RegexExtractor.template">$1$ $2$</stringProp>
+                <stringProp name="RegexExtractor.default">NOT FOUND</stringProp>
+                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+                <stringProp name="RegexExtractor.match_number">-1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+            </hashTree>
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="Log Productos" enabled="false">
+              <stringProp name="ForeachController.inputVal">DatosProducto</stringProp>
+              <stringProp name="ForeachController.returnVal">DatosProducto</stringProp>
+              <boolProp name="ForeachController.useSeparator">true</boolProp>
+              <stringProp name="ForeachController.endIndex">5</stringProp>
+              <stringProp name="TestPlan.comments">Se mueve entre los diferentes productos que tiene el usuario</stringProp>
+            </ForeachController>
+            <hashTree>
+              <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ${DatosProducto}" enabled="true">
+                <boolProp name="WAITING">true</boolProp>
+                <boolProp name="SUCCESFULL">true</boolProp>
+                <stringProp name="RESPONSE_CODE">200</stringProp>
+                <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+                <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+                <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+                <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+                <stringProp name="URL"></stringProp>
+                <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+              </kg.apc.jmeter.samplers.DummySampler>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Promociones" enabled="false"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtienePromocionesEcommerce" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtienePromocionesEcommerce</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: &#xd;
+    {&#xd;
+        &quot;ID_Bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;NUD&quot;: ${__P(NUD_${index})}&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regex ClavePromo" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">DatosPromo</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;TipoPromocion&quot;:&quot;ESTATICO&quot;.*?&quot;ClavePromo&quot;:&quot;(\d+)&quot;.*?&quot;TotalNiveles&quot;:(\d+)</stringProp>
+                <stringProp name="RegexExtractor.template">$1$ $2$</stringProp>
+                <stringProp name="RegexExtractor.default">NOT FOUND</stringProp>
+                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+                <stringProp name="RegexExtractor.match_number">-1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+            </hashTree>
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="Log Promos Estáticas" enabled="false">
+              <stringProp name="ForeachController.inputVal">DatosPromo</stringProp>
+              <stringProp name="ForeachController.returnVal">DatosPromo</stringProp>
+              <boolProp name="ForeachController.useSeparator">true</boolProp>
+              <stringProp name="TestPlan.comments">Se mueve entre las diferentes promos estáticas que tiene el usuario</stringProp>
+            </ForeachController>
+            <hashTree>
+              <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ${DatosPromo}" enabled="true">
+                <boolProp name="WAITING">true</boolProp>
+                <boolProp name="SUCCESFULL">true</boolProp>
+                <stringProp name="RESPONSE_CODE">200</stringProp>
+                <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+                <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+                <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+                <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+                <stringProp name="URL"></stringProp>
+                <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+              </kg.apc.jmeter.samplers.DummySampler>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Productos Promoción" enabled="false"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtieneProductosPromocion" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtieneProductosPromocion</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;:&#xd;
+    {&#xd;
+        &quot;ID_Bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;NUD&quot;: ${__P(NUD_${index})},&#xd;
+        &quot;ClavePromo&quot;: &quot;${DatosPromo_1_g1}&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regex ClaveProducto, precios y nivel" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">DatosPropro</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;id_producto&quot;:(\d+).+?&quot;precio&quot;:(\d*.?\d+).+?&quot;precio_original&quot;:(\d*.?\d+).+?&quot;Maximo&quot;:(\d+).+?&quot;Nivel&quot;:(\d+)</stringProp>
+                <stringProp name="RegexExtractor.template">$1$ $2$ $3$ $4$ $5$</stringProp>
+                <stringProp name="RegexExtractor.default">NOT FOUND</stringProp>
+                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+                <stringProp name="RegexExtractor.match_number">-1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+            </hashTree>
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="Log Productos Promo Estática" enabled="false">
+              <stringProp name="ForeachController.inputVal">DatosPropro</stringProp>
+              <stringProp name="ForeachController.returnVal">DatosPropro</stringProp>
+              <boolProp name="ForeachController.useSeparator">true</boolProp>
+              <stringProp name="TestPlan.comments">Se mueve entre los productos que posee la promo estática</stringProp>
+              <stringProp name="ForeachController.startIndex">0</stringProp>
+            </ForeachController>
+            <hashTree>
+              <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ${DatosPropro}" enabled="true">
+                <boolProp name="WAITING">true</boolProp>
+                <boolProp name="SUCCESFULL">true</boolProp>
+                <stringProp name="RESPONSE_CODE">200</stringProp>
+                <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+                <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+                <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+                <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+                <stringProp name="URL"></stringProp>
+                <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+              </kg.apc.jmeter.samplers.DummySampler>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Pedidos"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtienePedidos" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtienePedidos</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;:&#xd;
+    {&#xd;
+        &quot;bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;nud&quot;: ${__P(NUD_${index})},&#xd;
+        &quot;offset&quot;: -6&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regex para obtener ID_Pedido" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">ID_Pedido</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;id_pedido&quot;\s*:\s*(\d+)</stringProp>
+                <stringProp name="RegexExtractor.template">$1$</stringProp>
+                <stringProp name="RegexExtractor.default">NOT FOUND</stringProp>
+                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+                <stringProp name="RegexExtractor.match_number"></stringProp>
+              </RegexExtractor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Pedido Detalle" enabled="true"/>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Dynamic JSON PedidoDetalle">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+
+try {
+	// Obtener el valor de las variables Properties JMeter
+	def ID_Bodega = props.get(&quot;ID_Bodega_${index}&quot;)
+	def NUD = props.get(&quot;NUD_${index}&quot;)
+	def ID_Pedido = vars.get(&quot;ID_Pedido_g1&quot;)
+	log.info(&quot;Número del pedido : &quot; + ID_Pedido)
+	
+	// Crea el objeto JSON base
+	def data = [:]
+	data[&quot;ID_Bodega&quot;] = ID_Bodega
+	data[&quot;NUD&quot;] = NUD
+	log.info(&quot;Base del JSON : &quot; + data);
+         
+	if (ID_Pedido != null) {
+		
+		data[&quot;ID_Pedido&quot;] = ID_Pedido
+		
+		// Convertir el objeto JSON a String y asignarlo al Body Data
+		vars.put(&quot;jsonDataPedido&quot;, JsonOutput.toJson(data))
+		log.info(&quot;Body data :&quot; + data);
+	} else {
+		
+		data[&quot;ID_Pedido&quot;] = 0
+		
+		// Convertir el objeto JSON a String y asignarlo al Body Data
+		vars.put(&quot;jsonDataPedido&quot;, JsonOutput.toJson(data))
+		log.info(&quot;Body data :&quot; + data);
+	}
+} catch (Exception e) {
+	log.error(&quot;Error al generar el JSON: &quot; + e.toString());
+}</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtienePedidoDetalle" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtienePedidoDetalle</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: &#xd;
+    		${jsonDataPedido}&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Notificaciones" enabled="false"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtieneNotificacionTendero" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtieneNotificacionTendero</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: {&#xd;
+        &quot;ID_Bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;NUD&quot;: ${__P(NUD_${index})},&#xd;
+        &quot;Version&quot;: &quot;6.9.1 (203)&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Plan III - Envío de pedido + Consultas" enabled="false"/>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Productos"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtieneProductos" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtieneProductos</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;:&#xd;
+    {&#xd;
+        &quot;bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;nud&quot;: ${__P(NUD_${index})},&#xd;
+        &quot;offset&quot;: -6&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regex SKU y Precio" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">DatosProducto</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;id_producto&quot;:(\d+).+?&quot;precio&quot;:(\d*.?\d+)</stringProp>
+                <stringProp name="RegexExtractor.template">$1$ $2$</stringProp>
+                <stringProp name="RegexExtractor.default">NOT FOUND</stringProp>
+                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+                <stringProp name="RegexExtractor.match_number">-1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+            </hashTree>
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="Log Productos" enabled="false">
+              <stringProp name="ForeachController.inputVal">DatosProducto</stringProp>
+              <stringProp name="ForeachController.returnVal">DatosProducto</stringProp>
+              <boolProp name="ForeachController.useSeparator">true</boolProp>
+              <stringProp name="ForeachController.endIndex">5</stringProp>
+              <stringProp name="TestPlan.comments">Se mueve entre los diferentes productos que tiene el usuario</stringProp>
+            </ForeachController>
+            <hashTree>
+              <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ${DatosProducto}" enabled="true">
+                <boolProp name="WAITING">true</boolProp>
+                <boolProp name="SUCCESFULL">true</boolProp>
+                <stringProp name="RESPONSE_CODE">200</stringProp>
+                <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+                <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+                <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+                <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+                <stringProp name="URL"></stringProp>
+                <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+              </kg.apc.jmeter.samplers.DummySampler>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Promociones"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtienePromocionesEcommerce">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtienePromocionesEcommerce</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: &#xd;
+    {&#xd;
+        &quot;ID_Bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;NUD&quot;: ${__P(NUD_${index})}&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regex ClavePromo" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">DatosPromo</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;TipoPromocion&quot;:&quot;ESTATICO&quot;.*?&quot;ClavePromo&quot;:&quot;(\d+)&quot;.*?&quot;TotalNiveles&quot;:(\d+)</stringProp>
+                <stringProp name="RegexExtractor.template">$1$ $2$</stringProp>
+                <stringProp name="RegexExtractor.default">NOT FOUND</stringProp>
+                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+                <stringProp name="RegexExtractor.match_number">-1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+            </hashTree>
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="Log Promos Estáticas" enabled="false">
+              <stringProp name="ForeachController.inputVal">DatosPromo</stringProp>
+              <stringProp name="ForeachController.returnVal">DatosPromo</stringProp>
+              <boolProp name="ForeachController.useSeparator">true</boolProp>
+              <stringProp name="TestPlan.comments">Se mueve entre las diferentes promos estáticas que tiene el usuario</stringProp>
+            </ForeachController>
+            <hashTree>
+              <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ${DatosPromo}" enabled="true">
+                <boolProp name="WAITING">true</boolProp>
+                <boolProp name="SUCCESFULL">true</boolProp>
+                <stringProp name="RESPONSE_CODE">200</stringProp>
+                <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+                <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+                <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+                <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+                <stringProp name="URL"></stringProp>
+                <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+              </kg.apc.jmeter.samplers.DummySampler>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Productos Promoción"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtieneProductosPromocion" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtieneProductosPromocion</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;:&#xd;
+    {&#xd;
+        &quot;ID_Bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;NUD&quot;: ${__P(NUD_${index})},&#xd;
+        &quot;ClavePromo&quot;: &quot;${DatosPromo_1_g1}&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regex ClaveProducto, precios y nivel" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">DatosPropro</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;id_producto&quot;:(\d+).+?&quot;precio&quot;:(\d*.?\d+).+?&quot;precio_original&quot;:(\d*.?\d+).+?&quot;Maximo&quot;:(\d+).+?&quot;Nivel&quot;:(\d+)</stringProp>
+                <stringProp name="RegexExtractor.template">$1$ $2$ $3$ $4$ $5$</stringProp>
+                <stringProp name="RegexExtractor.default">NOT FOUND</stringProp>
+                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+                <stringProp name="RegexExtractor.match_number">-1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+            </hashTree>
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="Log Productos Promo Estática" enabled="false">
+              <stringProp name="ForeachController.inputVal">DatosPropro</stringProp>
+              <stringProp name="ForeachController.returnVal">DatosPropro</stringProp>
+              <boolProp name="ForeachController.useSeparator">true</boolProp>
+              <stringProp name="TestPlan.comments">Se mueve entre los productos que posee la promo estática</stringProp>
+              <stringProp name="ForeachController.startIndex">0</stringProp>
+            </ForeachController>
+            <hashTree>
+              <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - ${DatosPropro}" enabled="true">
+                <boolProp name="WAITING">true</boolProp>
+                <boolProp name="SUCCESFULL">true</boolProp>
+                <stringProp name="RESPONSE_CODE">200</stringProp>
+                <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+                <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+                <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+                <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+                <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+                <stringProp name="URL"></stringProp>
+                <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+              </kg.apc.jmeter.samplers.DummySampler>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Pedidos"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtienePedidos">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtienePedidos</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;:&#xd;
+    {&#xd;
+        &quot;bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;nud&quot;: ${__P(NUD_${index})},&#xd;
+        &quot;offset&quot;: -6&#xd;
+    }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Consulta Pedido Detalle"/>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Dynamic JSON PedidoDetalle">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+
+try {
+	// Obtener el valor de las variables Properties JMeter
+	def ID_Bodega = props.get(&quot;ID_Bodega_${index}&quot;)
+	def NUD = props.get(&quot;NUD_${index}&quot;)
+	def ID_Pedido = vars.get(&quot;ID_Pedido_g1&quot;)
+	log.info(&quot;Número del pedido : &quot; + ID_Pedido)
+	
+	// Crea el objeto JSON base
+	def data = [:]
+	data[&quot;ID_Bodega&quot;] = ID_Bodega
+	data[&quot;NUD&quot;] = NUD
+	log.info(&quot;Base del JSON : &quot; + data);
+         
+	if (ID_Pedido != null) {
+		
+		data[&quot;ID_Pedido&quot;] = ID_Pedido
+		
+		// Convertir el objeto JSON a String y asignarlo al Body Data
+		vars.put(&quot;jsonDataPedido&quot;, JsonOutput.toJson(data))
+		log.info(&quot;Body data :&quot; + data);
+	} else {
+		
+		data[&quot;ID_Pedido&quot;] = 0
+		
+		// Convertir el objeto JSON a String y asignarlo al Body Data
+		vars.put(&quot;jsonDataPedido&quot;, JsonOutput.toJson(data))
+		log.info(&quot;Body data :&quot; + data);
+	}
+} catch (Exception e) {
+	log.error(&quot;Error al generar el JSON: &quot; + e.toString());
+}</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtienePedidoDetalle" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/ObtienePedidoDetalle</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: &#xd;
+    		${jsonDataPedido}&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Agrega productos a Carrito" enabled="true"/>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Dynamic JSON CarritoTendero" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+
+//Función para generar los pedidos con productos y promos
+def cart_buildPedidoItem(claveProducto_c, clavePromo_c, quantity_c, nivel_c, modelo_c) {
+    return [
+        &quot;ClaveProducto&quot;: claveProducto_c,
+        &quot;ClavePromo&quot;: clavePromo_c,
+        &quot;Quantity&quot;: quantity_c,
+        &quot;Nivel&quot;: nivel_c,
+        &quot;Modelo&quot;: modelo_c
+    ]
+}
+
+try {
+	// Obtener el valor de las variables Properties JMeter
+	def Bodega_c = props.get(&quot;ID_Bodega_${index}&quot;)
+	def NUD_c = props.get(&quot;NUD_${index}&quot;)
+	def cantidadProductos_c = Integer.parseInt(vars.get(&quot;DatosPropro_matchNr&quot;))
+	//log.info(&quot;Cantidad de productos de la promo : &quot; + cantidadProductos_c)
+	
+	// Crea el objeto JSON base
+	def dataCart = [:]
+	dataCart[&quot;ID_Bodega&quot;] = Bodega_c
+	dataCart[&quot;NUD&quot;] = NUD_c
+	dataCart[&quot;redsocial&quot;] = 1
+	//log.info(&quot;Base del JSON : &quot; + dataCart);
+
+	def pedidoCart = []
+
+	// 5 Productos Full Price
+	(1..5).each { i -&gt;
+       def claveProducto_c = vars.get(&quot;DatosProducto_&quot; + i + &quot;_g1&quot;)
+       pedidoCart.add(cart_buildPedidoItem(claveProducto_c, null, 5, null, null))
+	}
+	
+	dataCart[&quot;Pedido&quot;] = pedidoCart
+          
+	if (cantidadProductos_c != 0) {
+
+          // Productos que contiene la promoción
+          (1..cantidadProductos_c).each { i -&gt;
+            def claveProducto_c = vars.get(&quot;DatosPropro_&quot; + i + &quot;_g1&quot;)
+            def clavePromo_c = vars.get(&quot;DatosPromo_1_g1&quot;)
+            def quantity_c = vars.get(&quot;DatosPropro_&quot; + i + &quot;_g4&quot;)
+            def nivel_c = vars.get(&quot;DatosPropro_&quot; + i + &quot;_g5&quot;)
+            pedidoCart.add(cart_buildPedidoItem(claveProducto_c, clavePromo_c, quantity_c, nivel_c, null))
+          }
+
+		dataCart[&quot;Pedido&quot;] = pedidoCart
+		//log.info(&quot;JSon con la base + productos : &quot; + dataCart);
+
+		// Promoción
+		def promoCart = []
+		promoCart.add([&quot;ClavePromo&quot;: vars.get(&quot;DatosPromo_1_g1&quot;), &quot;PaquetesCanjeados&quot;: 1])
+
+		dataCart[&quot;Promos&quot;] = promoCart
+
+		// Convertir el objeto JSON a String y asignarlo al Body Data
+		vars.put(&quot;jsonDataCart&quot;, JsonOutput.toJson(dataCart))
+		//log.info(&quot;Body data :&quot; + dataCart);
+
+	} else {
+		// Sin promoción
+		//log.info(&quot;El usuario no tiene promos.&quot;);
+
+		dataCart[&quot;Promos&quot;] = []
+		vars.put(&quot;jsonDataCart&quot;, JsonOutput.toJson(dataCart))
+		
+	}
+} catch (Exception e) {
+	log.error(&quot;Error al generar el JSON: &quot; + e.toString());
+}</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CarritoTendero" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/CarritoTendero</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: &#xd;
+        ${jsonDataCart}&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Genera Pedido" enabled="true"/>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Dynamic JSON EnviaPedido" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+
+//Función para generar los pedidos con productos y promos
+def shipp_buildPedidoItem(claveProducto_s, quantity_s, unitPrice_s, clavePromo_s, descuento_s, nivel_s, modelo_s) {
+    return [
+        &quot;id_producto&quot;: claveProducto_s,
+        &quot;quantity&quot;: quantity_s,
+        &quot;unit_price&quot;: unitPrice_s,
+        &quot;ClavePromo&quot;: clavePromo_s,
+        &quot;Descuento&quot;: descuento_s,
+        &quot;Nivel&quot;: nivel_s,
+        &quot;modelo&quot;: modelo_s
+    ]
+}
+
+def twoDecimal(numero) {
+    return Math.round((numero + Math.pow(10, -15)) * 100) / 100;
+}
+
+try {
+	// Obtener el valor de las variables JMeterVariables
+	def Bodega_s = Integer.parseInt(props.get(&quot;ID_Bodega_${index}&quot;))
+	def NUD_s = Integer.parseInt(props.get(&quot;NUD_${index}&quot;))
+	def cantidadProductos_s = Integer.parseInt(vars.get(&quot;DatosPropro_matchNr&quot;))
+	//log.info(&quot;Cantidad de productos de la promo : &quot; + cantidadProductos_s)
+
+	// Crea el objeto JSON base
+	def dataShipp = [:]
+	dataShipp[&quot;bodega&quot;] = Bodega_s
+	dataShipp[&quot;nud&quot;] = NUD_s
+	dataShipp[&quot;offset&quot;] = -6
+	log.info(&quot;Base del JSON : &quot; + dataShipp);
+
+	def pedidoShipp = []
+
+	// 5 Productos Full Price
+	(1..5).each { i -&gt;
+       def claveProducto_s = vars.get(&quot;DatosProducto_&quot; + i + &quot;_g1&quot;)
+       def unitPrice_s = Double.parseDouble(vars.get(&quot;DatosProducto_&quot; + i + &quot;_g2&quot;))
+
+       pedidoShipp.add(shipp_buildPedidoItem(claveProducto_s, 5, unitPrice_s, null, null, null, null))
+     }
+
+     dataShipp[&quot;pedido&quot;] = pedidoShipp
+	//log.info(&quot;JSon con la base + productos : &quot; + dataShipp);
+	
+	if (cantidadProductos_s != 0) {
+
+          // Productos que contiene la promoción
+          (1..cantidadProductos_s).each { i -&gt;
+            def claveProducto_s = vars.get(&quot;DatosPropro_&quot; + i + &quot;_g1&quot;)
+            def quantity_s = Integer.parseInt(vars.get(&quot;DatosPropro_&quot; + i + &quot;_g4&quot;))
+            def unitPrice_s = Double.parseDouble(vars.get(&quot;DatosPropro_&quot; + i + &quot;_g2&quot;)) //unit_Price = Precio
+            unitPrice_s = twoDecimal(unitPrice_s)
+            def clavePromo_s = vars.get(&quot;DatosPromo_1_g1&quot;)
+		  def descuento_s =  Double.parseDouble(vars.get(&quot;DatosPropro_&quot; + i + &quot;_g3&quot;)) - unitPrice_s //Descuento = Precio_Original - unit_price
+		  descuento_s = twoDecimal(descuento_s)
+		  log.info(&quot;unitPrice es : &quot; + unitPrice_s);
+		  log.info(&quot;Descuento vista : &quot; + descuento_s);
+            def nivel_s = Integer.parseInt(vars.get(&quot;DatosPropro_&quot; + i + &quot;_g5&quot;))
+            pedidoShipp.add(shipp_buildPedidoItem(claveProducto_s, quantity_s, unitPrice_s, clavePromo_s, descuento_s, nivel_s, null))
+          }
+
+		dataShipp[&quot;pedido&quot;] = pedidoShipp
+		//log.info(&quot;JSon con la base + productos : &quot; + dataShipp);
+
+		// Promoción
+		def promoShipp = []
+		promoShipp.add([&quot;ClavePromo&quot;: vars.get(&quot;DatosPromo_1_g1&quot;), &quot;PaquetesCanjeados&quot;: 1])
+
+		dataShipp[&quot;promos&quot;] = promoShipp
+
+		// Convertir el objeto JSON a String y asignarlo al Body Data
+		vars.put(&quot;jsonDataShipp&quot;, JsonOutput.toJson(dataShipp))
+		//log.info(&quot;Body data :&quot; + dataShipp);
+
+	} else {
+		// Sin promoción
+		//log.info(&quot;El usuario no tiene promos.&quot;);
+
+		dataShipp[&quot;Promos&quot;] = []
+		vars.put(&quot;jsonDataShipp&quot;, JsonOutput.toJson(dataShipp))
+	}
+} catch (Exception e) {
+	log.error(&quot;Error al generar el JSON: &quot; + e.toString());
+}</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EnviaPedido" enabled="true">
+              <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+              <stringProp name="HTTPSampler.port">${port}</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.path">/EnviaPedido</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+  &quot;data&quot;: &#xd;
+  	${jsonDataShipp}&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+              <stringProp name="RandomTimer.range">3000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Plan IV - Otros (Para ti - Tickets)" enabled="false"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtenerDatosMural" enabled="false">
+            <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+            <stringProp name="HTTPSampler.port">${port}</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">/ObtenerDatosMural</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: {&#xd;
+        &quot;ID_Bodega&quot;: ${__V(ID_Bodega_${index})},&#xd;
+        &quot;NUD&quot;: ${__V(nud_${index})},&#xd;
+        &quot;Version&quot;: &quot;6.9.1 (203)&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ObtieneVentasMesHistoricoTendero" enabled="false">
+            <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+            <stringProp name="HTTPSampler.port">${port}</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">/ObtieneVentasMesHistoricoTendero</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: {&#xd;
+        &quot;ID_Bodega&quot;: ${__V(ID_Bodega_${index})},&#xd;
+        &quot;NUD&quot;: ${__V(nud_${index})},&#xd;
+        &quot;Version&quot;: &quot;6.9.1 (203)&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Cancelar Pedido" enabled="false"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CancelaPedido" enabled="false">
+            <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+            <stringProp name="HTTPSampler.port">${port}</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.path">/CancelaPedido</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: &#xd;
+    {&#xd;
+        &quot;bodega&quot;: ${__P(ID_Bodega_${index})},&#xd;
+        &quot;nud&quot;: ${__V(nud_${index})},&#xd;
+        &quot;offset&quot;: -6&#xd;
+    }&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="false">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySamplerProperties">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugPostProcessor>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Reporte resumen">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>false</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">${output_dir}_reporte_${NumHilos}.csv</stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">${output_dir}_reporte_${NumHilos}.csv</stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="Ver Resultados en Árbol">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">${output_dir}_reporte_${NumHilos}.csv</stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ThreadsStateOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Active Threads Over Time">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">${output_dir}_reporte_${NumHilos}.csv</stringProp>
+        <longProp name="interval_grouping">500</longProp>
+        <boolProp name="graph_aggregated">false</boolProp>
+        <stringProp name="include_sample_labels"></stringProp>
+        <stringProp name="exclude_sample_labels"></stringProp>
+        <stringProp name="start_offset"></stringProp>
+        <stringProp name="end_offset"></stringProp>
+        <boolProp name="include_checkbox_state">false</boolProp>
+        <boolProp name="exclude_checkbox_state">false</boolProp>
+      </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+      <hashTree/>
+      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.TransactionsPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Transactions per Second">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">${output_dir}_reporte_${NumHilos}.csv</stringProp>
+        <longProp name="interval_grouping">1000</longProp>
+        <boolProp name="graph_aggregated">false</boolProp>
+        <stringProp name="include_sample_labels"></stringProp>
+        <stringProp name="exclude_sample_labels"></stringProp>
+        <stringProp name="start_offset"></stringProp>
+        <stringProp name="end_offset"></stringProp>
+        <boolProp name="include_checkbox_state">false</boolProp>
+        <boolProp name="exclude_checkbox_state">false</boolProp>
+      </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+      <hashTree/>
+      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseTimesOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Response Times Over Time" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">${output_dir}_reporte_${NumHilos}.csv</stringProp>
+        <longProp name="interval_grouping">500</longProp>
+        <boolProp name="graph_aggregated">false</boolProp>
+        <stringProp name="include_sample_labels"></stringProp>
+        <stringProp name="exclude_sample_labels"></stringProp>
+        <stringProp name="start_offset"></stringProp>
+        <stringProp name="end_offset"></stringProp>
+        <boolProp name="include_checkbox_state">false</boolProp>
+        <boolProp name="exclude_checkbox_state">false</boolProp>
+      </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
